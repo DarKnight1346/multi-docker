@@ -1,0 +1,29 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [{
+    "name": "Client",
+    "image": "gmathis96/multi-client",
+    "hostname": "client",
+    "essential": false
+  }, {
+    "name": "Server",
+    "image": "gmathis96/multi-server",
+    "hostname": "api",
+    "essential": false
+  }, {
+    "name": "Worker",
+    "image": "gmathis96/multi-worker",
+    "hostname": "worker",
+    "essential": false
+  }, {
+    "name": "Nginx",
+    "image": "gmathis96/multi-nginx",
+    "hostname": "nginx",
+    "essential": true,
+    "portMappings": [{
+      "hostPort": 80,
+      "containerPort": 80
+    }],
+    "links": ["Client", "Server"]
+  }]
+}
