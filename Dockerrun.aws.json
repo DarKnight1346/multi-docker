@@ -4,17 +4,20 @@
     "name": "Client",
     "image": "gmathis96/multi-client",
     "hostname": "client",
-    "essential": false
+    "essential": false,
+    "memory": 128
   }, {
     "name": "Server",
     "image": "gmathis96/multi-server",
     "hostname": "api",
-    "essential": false
+    "essential": false,
+    "memory": 128
   }, {
     "name": "Worker",
     "image": "gmathis96/multi-worker",
     "hostname": "worker",
-    "essential": false
+    "essential": false,
+    "memory": 128
   }, {
     "name": "Nginx",
     "image": "gmathis96/multi-nginx",
@@ -24,6 +27,7 @@
       "hostPort": 80,
       "containerPort": 80
     }],
-    "links": ["Client", "Server"]
+    "links": ["Client", "Server"],
+    "memory": 128
   }]
 }
